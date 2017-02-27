@@ -1,7 +1,7 @@
 ## Task Manager with time tracker
 
-This application has been uploaded to the Heroku.
-You can test it by clicking on [this link.](https://github.com/airbnb/javascript)
+This application has been uploaded to the GitHub Pages.
+You can test it by clicking on [this link.](https://mastep92.github.io/)
 
 I also made a small demonstration of the application.
 You can watch it by clicking on the Youtube logo below.
@@ -16,7 +16,7 @@ You can watch it by clicking on the Youtube logo below.
 ```
 $ mkdir BeProductive
 $ cd BeProductive
-$ git clone BeProductive
+$ git clone https://github.com/MaStep92/BeProductive.git
 ```
 
 2 - Install dependencies
