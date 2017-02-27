@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
-import TodoList from './TodoList.jsx';
-import CompleteAllTodos from './CompleteAllTodos.jsx';
-import AddTodo from './AddTodo.jsx';
+import TodoList from '../containers/TodoList.jsx';
+import CompleteAllTodos from '../containers/CompleteAllTodos.jsx';
+import AddTodo from '../containers/AddTodo.jsx';
 import Footer from './Footer.jsx';
 
 import styles from './TodoApp.less';
