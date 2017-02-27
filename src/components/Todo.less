@@ -1,0 +1,92 @@
+.todo {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+
+.text {
+  padding: 16px 50px;
+  user-select: none;
+  position: relative;
+}
+
+.textCompleted {
+  composes: text;
+
+  text-decoration: line-through;
+  font-style: italic;
+  color: lightgrey;
+}
+
+.buttons{
+  align-self: center;
+  padding-right: 15px;
+}
+
+.icon {
+  position: absolute;
+  left: 18px;
+  top: 13px;
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
+  color: white;
+  border-radius: 50%;
+  border: 2px solid #818181;
+}
+
+.iconCompleted {
+  composes: icon;
+
+  border: 2px solid #94d173;
+  background-color: #94d173;
+}
+
+.checkmark {
+  position: relative;
+  left: 2px;
+  z-index: 1;
+}
+
+.delete {
+  cursor: pointer;
+  font-weight: 300;
+  color: #d01515;
+  width: 35px;
+  height: 35px;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.startBtn {
+  width: 35px;
+  height: 35px;
+  color: #21c32e;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.stopBtn {
+  opacity: 0.5;
+  width: 35px;
+  height: 35px;
+
+  &:hover {
+    transition: opacity 200ms;
+    opacity: 1;
+  }
+}
+
+.resetBtn {
+  opacity: 0.5;
+  width: 35px;
+  height: 35px;
+
+  &:hover {
+    opacity: 1;
+  }
+}
