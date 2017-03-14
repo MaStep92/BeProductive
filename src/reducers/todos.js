@@ -28,6 +28,7 @@ function todo(state, action) {
 
         case START_TIME_TODO: {
             if (state.id !== action.id) {
+                console.log(action);
                 return {
                     ...state,
                     isOn: false

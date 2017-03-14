@@ -10,20 +10,23 @@ const timerMiddleware = store => next => action => {
     if (action.type === START_TIME_TODO) {
         const storage = store.getState().todos;
 
-        storage.forEach( function(item){
+        storage.forEach((item) => {
            if (item.isOn){
-               store.dispatch({ type: STOP_TIME_TODO, id: item.id, intervalID: item.intervalID });
+               store.dispatch({
+                   type: STOP_TIME_TODO,
+                   id: item.id,
+                   intervalID: item.intervalID
+               });
                clearInterval(item.intervalID);
            }
-           return false;
         });
 
-        setTimeout(function() {
-            store.dispatch({ type: TICK_TODO, id: action.id, intervalID: intervalID})
-        }, 200);
-
-       const intervalID = action.interval = setInterval(() =>
-           store.dispatch({ type: TICK_TODO, id: action.id, intervalID: intervalID })
+      action.intervalID = setInterval(() =>
+           store.dispatch({
+               type: TICK_TODO,
+               id: action.id,
+               intervalID: action.intervalID
+           })
            , 1000);
 
     } else if (action.type === STOP_TIME_TODO) {

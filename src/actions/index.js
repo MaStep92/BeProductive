@@ -4,7 +4,6 @@ import {
     START_TIME_TODO,
     STOP_TIME_TODO,
     RESET_TIME_TODO,
-    SET_FILTER,
     COMPLETE_ALL_TODOS,
     DELETE_TODO
 } from './../constants';
@@ -25,6 +24,7 @@ export const toggleTodo = id => {
 };
 
 export const startTimeTodo = (id) => {
+    console.info(id);
     return {
         type: START_TIME_TODO,
         id,

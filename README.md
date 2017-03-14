@@ -3,11 +3,6 @@
 This application has been uploaded to the GitHub Pages.
 You can test it by clicking on [this link.](https://mastep92.github.io/)
 
-I also made a small demonstration of the application.
-You can watch it by clicking on the Youtube logo below.
-
-[![Foo](https://cdn4.iconfinder.com/data/icons/iconsimple-logotypes/512/youtube-128.png)](https://youtu.be/uzz_XT7FRo0)
-
 ### Manual setting:
 
 #### Installation
@@ -31,6 +26,15 @@ $ cd ../BeProductive
 $ npm run start
 ```
 Go to [http://localhost:4000/](http://localhost:4000/) and see what happens 😉.
+
+Technologies used:
+- React.js
+- Redux.js
+- React router(v3)
+- CSS Modules
+- Webpack(v2)
+- ESlint
+- Stylelint
 
 Front-end Architecture:
 * actions
@@ -59,13 +63,3 @@ Front-end Architecture:
   * index - all auxiliary functions
   * localstorage - localstorage utility
 main.js - entry point.
-
-
-Technologies used:
-- React.js
-- Redux.js
-- React router(v3)
-- CSS Modules
-- Webpack(v2)
-- ESlint
-- Stylelint
