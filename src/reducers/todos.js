@@ -8,7 +8,8 @@ import {
     RESET_TIME_TODO,
     STOP_TIME_TODO,
     COMPLETE_ALL_TODOS,
-    DELETE_TODO
+    DELETE_TODO,
+    CHECK_TODOS
 } from './../constants';
 
 const todosStorage = getStorage('todos');
@@ -22,13 +23,12 @@ function todo(state, action) {
                 time: 0,
                 completed: false,
                 isOn: false,
-                intervalID: 0
+                intervalID: null
             };
         }
 
         case START_TIME_TODO: {
             if (state.id !== action.id) {
-                console.log(action);
                 return {
                     ...state,
                     isOn: false
@@ -95,6 +95,14 @@ function todo(state, action) {
                 completed: !state.completed,
             };
 
+
+        case CHECK_TODOS: {
+            return {
+                ...state,
+                isOn: false
+            };
+        }
+
         default: {
             return state;
         }
@@ -134,9 +142,9 @@ export default function todos(state = todosStorage, action) {
             return state.filter(item => item.id !== action.id);
         }
 
-        case COMPLETE_ALL_TODOS: {
-            return state.map(item => todo(item, action));
-        }
+        case CHECK_TODOS: {
+        return state.map(item => todo(item, action));
+    }
 
         default: {
             return state;

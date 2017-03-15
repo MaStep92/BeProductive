@@ -2,9 +2,17 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 
+import { checkTodos } from './../actions';
+
 import Todo from './Todo.jsx';
 
 class TodoList extends Component {
+    componentWillMount() {
+        const { checkTodos } = this.props;
+
+        checkTodos();
+    }
+
     render() {
         return (
             <div>
@@ -49,4 +57,4 @@ function mapStateToProps(state, ownProps) {
   };
 }
 
-export default withRouter(connect(mapStateToProps)(TodoList));
+export default withRouter(connect(mapStateToProps, { checkTodos })(TodoList));

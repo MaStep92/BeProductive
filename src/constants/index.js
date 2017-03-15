@@ -7,3 +7,4 @@ export const RESET_TIME_TODO = 'RESET_TIME_TODO';
 export const SET_FILTER = 'SET_FILTER';
 export const COMPLETE_ALL_TODOS = 'COMPLETE_ALL_TODOS';
 export const DELETE_TODO = 'DELETE_TODO';
+export const CHECK_TODOS = 'CHECK_TODOS';

@@ -13,7 +13,6 @@ export default class TodoApp extends Component {
             <div className={styles.root}>
                 <div className={styles.container}>
                     <h2 className={styles.header}>Be productive!</h2>
-
                     <div className={styles.app}>
                         <CompleteAllTodos />
                         <AddTodo />

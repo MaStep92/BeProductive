@@ -26,9 +26,9 @@ export default class Todo extends Component {
     }
 
     componentWillUnmount () {
-        const { intervalID } = this.props;
+        const { id } = this.props;
 
-        clearInterval(intervalID);
+        stopTimeTodo(id);
     }
 
     handleStartClick() {
@@ -38,9 +38,9 @@ export default class Todo extends Component {
     }
 
     handleStopClick() {
-        const { id, intervalID, stopTimeTodo } = this.props;
+        const { id, stopTimeTodo } = this.props;
 
-        stopTimeTodo(id, intervalID);
+        stopTimeTodo(id);
     }
 
     handleResetClick() {

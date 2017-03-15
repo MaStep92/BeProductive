@@ -1,38 +1,32 @@
 import {
     START_TIME_TODO,
-    TICK_TODO,
-    STOP_TIME_TODO
+    STOP_TIME_TODO,
+    DELETE_TODO
 } from './../constants';
 
-import { tickTodo } from './../actions';
+import { stopTimeTodo, tickTodo } from './../actions';
+
+let timer;
 
 const timerMiddleware = store => next => action => {
-    if (action.type === START_TIME_TODO) {
-        const storage = store.getState().todos;
+            if (action.type === START_TIME_TODO) {
+                const storage = store.getState().todos;
 
-        storage.forEach((item) => {
-           if (item.isOn){
-               store.dispatch({
-                   type: STOP_TIME_TODO,
-                   id: item.id,
-                   intervalID: item.intervalID
-               });
-               clearInterval(item.intervalID);
-           }
-        });
+                storage.forEach(item => {
+                    if (item.isOn) {
+                        clearInterval(timer);
+                        store.dispatch(stopTimeTodo(item.id));
+                    }
+                });
 
-      action.intervalID = setInterval(() =>
-           store.dispatch({
-               type: TICK_TODO,
-               id: action.id,
-               intervalID: action.intervalID
-           })
-           , 1000);
+                timer = setInterval(() => store.dispatch(tickTodo(action.id)), 1000);
+            } else if (
+                action.type === STOP_TIME_TODO || action.type === DELETE_TODO
+            ) {
+                clearInterval(timer);
+            }
+            next(action);
+        };
 
-    } else if (action.type === STOP_TIME_TODO) {
-        clearInterval(action.intervalID);
-    }
-    next(action);
-};
 
 export default timerMiddleware;

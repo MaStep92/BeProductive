@@ -3,9 +3,11 @@ import {
     TOGGLE_TODO,
     START_TIME_TODO,
     STOP_TIME_TODO,
+    TICK_TODO,
     RESET_TIME_TODO,
     COMPLETE_ALL_TODOS,
-    DELETE_TODO
+    DELETE_TODO,
+    CHECK_TODOS
 } from './../constants';
 
 export const addTodo = text => {
@@ -23,20 +25,24 @@ export const toggleTodo = id => {
     };
 };
 
-export const startTimeTodo = (id) => {
-    console.info(id);
+export const startTimeTodo = id => {
     return {
         type: START_TIME_TODO,
         id,
-
     }
 };
 
-export const stopTimeTodo = (id, intervalID) => {
+export const tickTodo = id => {
+    return {
+        type: TICK_TODO,
+        id,
+    }
+};
+
+export const stopTimeTodo = id => {
     return {
         type: STOP_TIME_TODO,
-        id,
-        intervalID,
+        id
     }
 };
 
@@ -58,5 +64,11 @@ export const deleteTodo = id => {
     return {
         type: DELETE_TODO,
         id
+    };
+};
+
+export const checkTodos = () => {
+    return {
+        type: CHECK_TODOS
     };
 };
